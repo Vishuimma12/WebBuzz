@@ -1,12 +1,22 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import LoginForm from './LoginForm';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoginOpen, setLoginOpen] = useState(false);
+
+  const openLoginModal = () => {
+    setLoginOpen(true);
+  };
+
+  const closeLoginModal = () => {
+    setLoginOpen(false);
+  };
 
   return (
     <>
-      <button onClick={}>Login</button>
+      <button onClick={openLoginModal}>Login</button>
+      {isLoginOpen && <LoginForm closeModal={closeLoginModal}/>}
     </>
   )
 }
